@@ -2,56 +2,69 @@
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="style.css">  
-    <title>Daily Planner</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Daily Planner</title>
 </head>
 
 <body>
-    <h1 id="center">Daily Planner</h1>
-    <h2 style="text-align:right;">Date :</h2>
-    <input type="text" id="date" name="date" maxlength="10" size="10" style="text-align:right;">
-    
-    <form action="/action_page.php">
-        <fieldset>
-            <label for="GOAL">GOAL:</label><br>
-            <textarea name="GOAL" rows="10" cols="50">
-            </textarea>
+  <h1 class="center">Daily Planner</h1>
+  <div class="date-wrapper">
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date">
+  </div> <!-- finished Date Function-->
 
-        </fieldset>
-    </form>
-    <!-- ธันวา ขันหมาก -->
-    <div>
-     
+  <div class="container">
+    <div class="goal-column">
+        <label for="goal">Goal:</label>
+        <textarea name="Goal" rows="4" cols="50">
+        </textarea>
     </div>
+    <div class="time-column">
+      <label for="time">Time:</label>
+      <input type="text" id="time" name="time">
+      <label for="session">Session:</label>
+      <input type="text" id="session" name="session">
+    </div>
+  </div>
 
-    <!-- มุก บิ๊กบอส -->
-    <div>
-        <table style="width:100%">
-            <tr>
-              <th rowspan="2" style="width:60%">Tasks</th>
-              <th rowspan="2" style="width:5%">Check</th>
-              <th rowspan="2" style="width:5%">hr</th>
-              <th style="width:20%", colspan="6">10 min</th>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>20</td>
-              <td>30</td>
-              <td>40</td>
-              <td>50</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td align="center">
-                <input type="checkbox" id="task1" name="task1" value="true">
-              </td>
-              <td align="center">1</td>
-            </tr>
-          </table>
-    </div>
+  </div>
+
+
+  </fieldset>
+  </form>
+  <!-- ธันวา ขันหมาก -->
+  <div>
+
+  </div>
+
+  <!-- มุก บิ๊กบอส -->
+  <div>
+    <table style="width:100%">
+      <tr>
+        <th rowspan="2" style="width:60%">Tasks</th>
+        <th rowspan="2" style="width:5%">Check</th>
+        <th rowspan="2" style="width:5%">hr</th>
+        <th style="width:20%" , colspan="6">10 min</th>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>20</td>
+        <td>30</td>
+        <td>40</td>
+        <td>50</td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="center">
+          <input type="checkbox" id="task1" name="task1" value="true">
+        </td>
+        <td align="center">1</td>
+      </tr>
+    </table>
+  </div>
 </body>
 
 </html>
