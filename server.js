@@ -53,9 +53,9 @@ app.post('/updateData', async (req, res) => {
   // }
   try {
     console.log(req.body);
-    const { databaseName, collectionName, currentName, task } = req.body;
+    const { databaseName, collectionName, currentName, task ,date ,goal , time , session} = req.body;
     console.log(task);
-    await updateDataByName("sample_airbnb", "ListingAndRevivews", {name: "datatable",} , {task:task});
+    await updateDataByName("sample_airbnb", "ListingAndRevivews", {name: "datatable",} , { date:date , goal:goal, time:time , session: session , task:task });
 
     // res.json(result); // ส่งผลลัพธ์กลับไปที่เว็บเบราวเซอร์
   } catch (error) {
