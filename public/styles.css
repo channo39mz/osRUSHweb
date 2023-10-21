@@ -1,15 +1,13 @@
 body {
-    background-color: lightblue;
+    background-image: url('sky.webp');
 }
 
-table,
-th,
-td {
+table,th,td {
     border-collapse: collapse;
     border: 1px solid rgb(14, 13, 13);
   }
   td:nth-child(even), th:nth-child(even){
-    background-color: #eed6e4;
+    background-color: #f3e0f0;
   }
   th {
     text-align: center;
