@@ -29,11 +29,6 @@ td {
     width:95%;
   }
 
-td:nth-child(even),
-th:nth-child(even) {
-    background-color: #D6EEEE;
-}
-
 .center {
     text-align: center;
 }
@@ -59,7 +54,9 @@ th:nth-child(even) {
 .time-column {
     flex: 20;
     padding: 10px;
-    border: 1px solid rgb(219, 178, 220);
+    border: 1px solid rgb(14, 13, 13);
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 .time-column input[type= text] {
@@ -70,7 +67,9 @@ th:nth-child(even) {
 .goal-column {
     flex: 80;
     padding: 10px;
-    border: 1px solid rgb(219, 178, 220);
+    border: 1px solid rgb(14, 13, 13);
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 .goal-column textarea{
