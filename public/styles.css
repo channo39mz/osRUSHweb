@@ -15,10 +15,6 @@ table {
     width: 100%;
 }
 
-td:nth-child(even),th:nth-child(even) {
-    
-}
-
 th {
     text-align: center;
 }
