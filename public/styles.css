@@ -1,0 +1,11 @@
+body {
+    background-color: lightblue;
+  }
+  table, th, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  td:nth-child(even), th:nth-child(even){
+    background-color: #D6EEEE;
+  }
+  
