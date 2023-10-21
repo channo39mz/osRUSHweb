@@ -34,14 +34,16 @@ for (let i = 0; i < row.length; i++) {
     const hourText = document.createTextNode(i+":00");
     hour[i].appendChild(hourText);
 
+    const minuteInput = [];
     for (let j = 0; j < 6; j++) {
-        const minuteInput = document.createElement("input");
-        minuteInput.type = "checkbox";
-        minuteInput.id = "minute"+i;
-        minuteInput.className = "minute";
-        minuteInput.name = "minute"+i;
-        minuteInput.value = "";
-        minute[i][j].appendChild(minuteInput);
+        minuteInput[i] = []
+        minuteInput[i][j] = document.createElement("input");
+        minuteInput[i][j].type = "checkbox";
+        minuteInput[i][j].id = "minute"+i+"_"+j;
+        minuteInput[i][j].className = "minute";
+        minuteInput[i][j].name = "minute"+i+"_"+j;
+        minuteInput[i][j].value = "";
+        minute[i][j].appendChild(minuteInput[i][j]);
     }
 }
 
