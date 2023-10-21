@@ -1,14 +1,111 @@
-table, th, td {
-    border:1px solid black;
+body {
+    background-color: lightblue;
+}
+
+table,
+th,
+td {
     border-collapse: collapse;
-    padding: 10px;
+    border: 1px solid rgb(14, 13, 13);
+}
+
+table {
+    width: 100%;
+}
+
+td:nth-child(even),
+th:nth-child(even) {
+    background-color: #eed6e4;
 }
 
 th {
     text-align: center;
 }
 
+td {
+    text-align: center;
+}
+
+#taskHead {
+    width: 60%;
+}
+
+#checkHead {
+    width: 5%;
+}
+
+#hourHead {
+    width: 5%;
+}
+
+#minuteHead {
+    width: 20%;
+}
+
 .check {
-    width: 100px;
-    height: 100px;
+    width: 20px;
+    height: 20px;
+}
+
+.minute {
+    width: 20px;
+    height: 20px;
+}
+
+.task {
+    width: 95%;
+}
+
+.center {
+    text-align: center;
+}
+
+.button-wrapper {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.date-wrapper {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.date-wrapper label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.date-wrapper input {
+    text-align: left;
+}
+
+.container {
+    display: flex;
+}
+
+.time-column {
+    flex: 20;
+    padding: 10px;
+    border: 1px solid rgb(14, 13, 13);
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.time-column input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.goal-column {
+    flex: 80;
+    padding: 10px;
+    border: 1px solid rgb(14, 13, 13);
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.goal-column textarea {
+    width: 100%;
+    height: 62%;
+    resize: none;
 }

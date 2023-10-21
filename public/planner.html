@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Planner</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Daily Planner</title>
 </head>
+
+
 <body>
-    <h1>Daily Planner</h1>
+  <h1 class="center">Daily Planner</h1>
+  <div class="date-wrapper">
+    <label for="date">Date:</label>
+    <input type="text" id="date" name="date">
+  </div> <!-- finished Date Function-->
 
-    <!-- ธันวา ขันหมาก -->
-    <div>
-
+  <div class="container">
+    <div class="goal-column">
+      <label for="goal">Goal:</label>
+      <textarea name="Goal" rows="4" cols="50">
+        </textarea>
     </div>
+    <div class="time-column">
+      <label for="time">Time:</label>
+      <input type="text" id="time" name="time">
+      <label for="session">Session:</label>
+      <input type="text" id="session" name="session">
+    </div>
+  </div>
 
-    <!-- มุก บิ๊กบอส-->
-    <div>
+  <!-- มุก บิ๊กบอส-->
+  <div>
         <table id="tasktable">
             <tr>
-                <th rowspan="2">Task</th>
-                <th rowspan="2">Check</th>
-                <th rowspan="2">Hour</th>
-                <th colspan="6">Minute</th>
+                <th id="taskHead" rowspan="2">Task</th>
+                <th id="checkHead" rowspan="2">Check</th>
+                <th id="hourHead" rowspan="2">Hour</th>
+                <th id="minuteHead" colspan="6">Minute</th>
             </tr>
             <tr>
                 <td>10</td>
@@ -33,6 +49,11 @@
             </tr>
             <script src="createTask.js"></script>
         </table>
+    </div>
+
+    <div class="button-wrapper">
+        <button type="button" id="clear" class="button" name="clear">clear</button>
+        <button type="button" id="save" class="button" name="save">save</button>
     </div>
 </body>
 </html>
