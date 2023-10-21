@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // ทำงานกับ DOM หลังจาก DOM ถูกโหลด
-  const runButton = document.getElementById('runButton');
+  const saveButton = document.getElementById('saveButton');
   const resultElement = document.getElementById('result');
   const resultElement2 = document.getElementById('result2');
   const resultElement3 = document.getElementById('result3');
@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const updateButton = document.getElementById('updateButton');
   const updateInput = document.getElementById('updateInput');
   console.log(resultElement);
+  
   // runButton.addEventListener('click', runMongoDBFunction);
-  runButton.addEventListener('click', function () {
+  saveButton.addEventListener('click', function () {
     fetch('/getMongoData') // ร้องขอข้อมูลจาก Express.js
       .then(response => response.json())
       .then(data => {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   updateButton.addEventListener('click', function () {
-    const newName = updateInput.value; // รับข้อความจากอิงพุท
+    const newName = updateInput.value; // รับข้อความจากอินพุท
 
     // สร้างข้อมูลที่จะส่งไปยังเซิร์ฟเวอร์
     const requestData = {
