@@ -70,6 +70,7 @@ async function updateDataByName(databaseName, collectionName, query, update) {
   const result = await client.db(databaseName).collection(collectionName).updateOne(query, { $set: update });
   console.log(`Matched ${result.matchedCount} document(s)`);
   console.log(`Modified ${result.modifiedCount} document(s)`);
+  console.log('test');
 }
 
 async function upsertDataByName(databaseName, collectionName, query, update) {
