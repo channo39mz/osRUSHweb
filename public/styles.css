@@ -9,6 +9,10 @@ td {
     border: 1px solid rgb(14, 13, 13);
 }
 
+table {
+    width: 100%;
+}
+
 td:nth-child(even),
 th:nth-child(even) {
     background-color: #eed6e4;
@@ -22,12 +26,28 @@ td {
     text-align: center;
 }
 
+#taskHead {
+    width: 60%;
+}
+
+#checkHead {
+    width: 5%;
+}
+
+#hourHead {
+    width: 5%;
+}
+
+#minuteHead {
+    width: 20%;
+}
+
 .check {
     width: 20px;
     height: 20px;
 }
 
-.min {
+.minute {
     width: 20px;
     height: 20px;
 }
