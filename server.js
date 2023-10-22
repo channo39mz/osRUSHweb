@@ -22,6 +22,7 @@ app.use(express.json());
 //     // รหัสการทำงานที่คุณต้องการดำเนินการ
 //     res.json({ message: 'MongoDB function executed' });
 //   });
+
 app.get("/getMongoData", async (req, res) => {
   console.log("I am get");
   try {
@@ -47,15 +48,17 @@ app.post('/updateData', async (req, res) => {
   }
 
   // ตรวจสอบค่าที่ต้องการ
-  if (!req.body.databaseName || !req.body.collectionName || !req.body.currentName || !req.body.newName) {
-    res.status(400).json({ error: 'ข้อมูลไม่ครบถ้วน' });
-    return;
-  }
+  // if (!req.body.databaseName || !req.body.collectionName || !req.body.currentName || !req.body.newName) {
+  //   res.status(400).json({ error: 'ข้อมูลไม่ครบถ้วน' });
+  //   return;
+  // }
   try {
     console.log(req.body);
-    const { databaseName, collectionName, currentName, newName } = req.body;
-
-    await updateDataByName("sample_airbnb", "ListingAndRevivews", {name: "datatable",} , {text:newName});
+    const { databaseName, collectionName, currentName, task ,date ,goal , time , 
+      session ,check , minute} = req.body;
+    console.log(task);
+    await updateDataByName("sample_airbnb", "ListingAndRevivews", {name: "datatable",} , { date:date , goal:goal, time:time , 
+      session: session , task:task ,check: check , minute: minute });
 
     // res.json(result); // ส่งผลลัพธ์กลับไปที่เว็บเบราวเซอร์
   } catch (error) {
