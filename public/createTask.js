@@ -17,31 +17,33 @@ for (let i = 0; i < 24; i++) {
 for (let i = 0; i < row.length; i++) {
     const taskInput = document.createElement("input");
     taskInput.type = "text";
-    taskInput.id = "task" + i;
+    taskInput.id = "task"+i;
     taskInput.className = "task";
-    taskInput.name = "task" + i;
+    taskInput.name = "task"+i;
     taskInput.value = "";
     task[i].appendChild(taskInput);
 
     const checkInput = document.createElement("input");
     checkInput.type = "checkbox";
-    checkInput.id = "check" + i;
+    checkInput.id = "check"+i;
     checkInput.className = "check";
-    checkInput.name = "check" + i;
+    checkInput.name = "check"+i;
     checkInput.value = "";
     check[i].appendChild(checkInput);
 
-    const hourText = document.createTextNode(i + ":00");
+    const hourText = document.createTextNode(i+":00");
     hour[i].appendChild(hourText);
 
+    const minuteInput = [];
     for (let j = 0; j < 6; j++) {
-        const minuteInput = document.createElement("input");
-        minuteInput.type = "checkbox";
-        minuteInput.id = "minute" + i;
-        minuteInput.className = "minute";
-        minuteInput.name = "minute" + i;
-        minuteInput.value = "";
-        minute[i][j].appendChild(minuteInput);
+        minuteInput[i] = []
+        minuteInput[i][j] = document.createElement("input");
+        minuteInput[i][j].type = "checkbox";
+        minuteInput[i][j].id = "minute"+i+"_"+j;
+        minuteInput[i][j].className = "minute";
+        minuteInput[i][j].name = "minute"+i+"_"+j;
+        minuteInput[i][j].value = "";
+        minute[i][j].appendChild(minuteInput[i][j]);
     }
 }
 
