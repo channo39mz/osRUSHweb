@@ -55,3 +55,23 @@ for (let i = 0; i < row.length; i++) {
         row[i].appendChild(minute[i][j]);
     }
 }
+
+const data = [];
+
+for (let i = 0; i < row.length; i++) {
+    const rowData = {
+        task: document.getElementById("task" + i).value,
+        check: document.getElementById("check" + i).checked,
+        hour: i,
+        minute: []
+    };
+
+    for (let j = 0; j < 6; j++) {
+        rowData.minute.push(document.getElementById("minute" + i).children[j].checked);
+    }
+
+    data.push(rowData);
+}
+
+const jsonData = JSON.stringify(data);
+console.log(jsonData);
