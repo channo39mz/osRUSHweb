@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
           value.value = data.task[i];
           // value.textContent = data.task[i]; // กำหนดค่าให้ value จาก data.task[i]
         }
+        for (let i = 0; i < 24; i++) {
+          for(let j = 0; j < 6; j++){
+            const tas = "minute" + i.toString() +"_"+j.toString();
+            const value = document.getElementById(tas);
+            value.checked = data.minute[i][j];
+          }
+        }
+        for (let i = 0; i < 24; i++) {
+          const tas = "check" + i.toString();
+          const value = document.getElementById(tas);
+          // console.log(tas);
+          console.log(data.task[i])
+          value.checked = data.check[i];
+          // value.textContent = data.task[i]; // กำหนดค่าให้ value จาก data.task[i]
+        }
       })
       .catch(error => {
         console.error('เกิดข้อผิดพลาด:', error);
