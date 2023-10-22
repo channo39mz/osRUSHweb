@@ -1,5 +1,5 @@
 body {
-    background-image:linear-gradient(rgba(255, 251, 251, 0),rgba(255, 251, 251, 0.379)) ,url('sky.webp');
+    background-image:linear-gradient(rgba(255, 251, 251, 0),rgba(255, 251, 251, 0.379)) ,url('sky.png');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,10 +13,6 @@ table,th,td {
 
 table {
     width: 100%;
-}
-
-td:nth-child(even),th:nth-child(even) {
-    
 }
 
 th {
