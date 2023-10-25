@@ -1,8 +1,8 @@
 body {
     background-image:linear-gradient(rgba(255, 251, 251, 0),rgba(255, 251, 251, 0.379)) ,url('sky.png');
-    -webkit-background-size: cover;
+    /* -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover; */
     background-size: cover;
     margin: 0;
     padding: 0;
