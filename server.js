@@ -14,14 +14,15 @@ const {
 
 const app = express();
 const port = 3000;
+const userRouter = require("./src/router/userRouter");
 
 app.use(express.static("public")); // ใช้ไฟล์ส่วน client-side ในโฟลเดอร์ 'public'
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// app.get('/mongodb-action', async (req, res) => {
-//     // รหัสการทำงานที่คุณต้องการดำเนินการ
-//     res.json({ message: 'MongoDB function executed' });
-//   });
+app.set("views", "./src/views");
+app.set("view engine", "ejs");
+
+app.use("/", userRouter);
 
 app.get("/getMongoData", async (req, res) => {
   console.log("I am get");
