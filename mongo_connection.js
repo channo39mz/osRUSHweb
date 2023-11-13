@@ -1,3 +1,4 @@
+const { json } = require('express');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri = "mongodb+srv://65050197:no39mzmz@osdata.lqhabyr.mongodb.net/?retryWrites=true&w=majority";
@@ -93,6 +94,21 @@ async function deleteListByName(databaseName, collectionName, query) {
   console.log(`Deleted ${result.deletedCount} document(s)`);
 }
 
+async function joinCollectionByName(databaseName, collection1Name, collection2Name, query) {
+  const result = await client.db(databaseName).collection(collection1Name).aggregate([
+    { 
+      $lookup: {
+        from: collection2Name,
+        localField: collection2Name + "_id",
+        foreignField: "_id",
+        as: collection2Name,
+      }
+    },
+    { $match: query }
+  ]).toArray();
+  return result;
+}
+
 module.exports = {
   connectToMongoDB,
   closeMongoDBConnection,
@@ -103,5 +119,6 @@ module.exports = {
   updateDataByName,
   upsertDataByName,
   updateAllList,
-  deleteListByName
+  deleteListByName,
+  joinCollectionByName
 };

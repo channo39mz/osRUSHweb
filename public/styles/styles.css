@@ -78,7 +78,7 @@ td {
     text-align: left;
 }
 
-.container {
+.container2 {
     display: flex;
 }
 
@@ -109,16 +109,8 @@ td {
     resize: none;
 }
 
-input {
-  border: 1px solid rgb(34, 20, 95);
-}
-
 h1{
   color: rgb(8, 8, 79);
-}
-
-label{
-  color: rgb(18, 18, 108);
 }
 
 #tasktable{

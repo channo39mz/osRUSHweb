@@ -3,28 +3,72 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=username%>'s Daily Planner</title>
     <link rel="stylesheet" href="/styles/styles.css">
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="/styles/styles2.css">
 </head>
 
 <body>
-    <h1 class="center">Daily Planner</h1>
-    <div class="date-wrapper">
-        <p>Date: <%=date%></p>
+
+<h1 class="center"><%=username%>'s Daily Planner</h1>
+
+<div class="date-wrapper">
+    <p><b>Date:</b> <%=date%></p>
+</div>
+
+<div class="container2">
+    <div class="goal-column">
+        <p><b>Goal:</b> <%=goal%></p>
+    </div>
+    <div class="time-column">
+        <p><b>Time:</b> <%=time%></p>
+        <p><b>Session:</b> <%=session%></p>
+    </div>
+</div>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create Task</button>
+<button type="submit" style="width:auto;" onclick="location.href='./<%=date%>/table';">Show Table</button>
+
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="./<%=date%>/task" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="/img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
-        <div class="goal-column">
-            <label for="goal">Goal:</label>
-            <textarea name="Goal" id="goal" rows="4" cols="50"></textarea>
-        </div>
-        <div class="time-column">
-            <label for="time">Time:</label>
-            <input type="text" id="time" name="time">
-            <label for="session">Session:</label>
-            <input type="text" id="session" name="session">
-        </div>
+      <label for="taskname"><b>Task Name</b></label><br>
+      <input type="text" placeholder="Enter Task" name="taskname" id="taskname" required><br>
+      <label for="starttime"><b>Start Time</b></label><br>
+      <input type="time" name="starttime" id="starttime" required><br>
+      <label for="endtime"><b>End Time</b></label><br>
+      <input type="time" name="endtime" id="endtime" required><br>
+      <label for="check"><b>Check</b></label><br>
+      <input type="checkbox" name="check" id="check" value="checked"><br>
+      <button type="submit">Create</button>
     </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  var modal2 = document.getElementById('id02');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+      if (event.target == modal2) {
+          modal2.style.display = "none";
+      }
+  }
+  </script>
 
 </body>
 

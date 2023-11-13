@@ -2,13 +2,15 @@ const express = require("express");
 const userRouter = express.Router();
 const {
     upsertDataByName,
+    readData2,
+    joinCollectionByName
 } = require("../../mongo_connection");
 
 userRouter.route("/").get((req, res) => {
     res.render("index");
 });
 
-userRouter.route("/username").get(async (req, res) => {
+userRouter.route("/user").get(async (req, res) => {
     if (!req.body) {
         res.status(400).json({ error: "ค่า req.body ไม่ถูกต้อง" });
         return;
@@ -41,8 +43,8 @@ userRouter.route("/:username/planner").post(async (req, res) => {
     try {
         const username = req.params.username;
         const date = req.body.date;
-        req.body.username = username;
-        await upsertDataByName("dailyplanner", "planners", { date: date, username: username }, req.body);
+        const user = await readData2("dailyplanner", "users", { username: username });
+        await upsertDataByName("dailyplanner", "planners", { date: date, users_id: user._id }, req.body);
         res.redirect("./" + date);
     } catch (error) {
         console.error("เกิดข้อผิดพลาด:", error);
@@ -53,7 +55,43 @@ userRouter.route("/:username/planner").post(async (req, res) => {
 userRouter.route("/:username/:date").get(async (req, res) => {
     const username = req.params.username;
     const date = req.params.date;
-    res.render("planner", { date: date, username: username });
+    const user = await readData2("dailyplanner", "users", { username: username });
+    const planner = await readData2("dailyplanner", "planners", { date: date, users_id: user._id });
+    const join = await joinCollectionByName("dailyplanner", "planners", "users", { _id: planner._id });
+    planner.username = join[0].users[0].username;
+    res.render("planner", planner);
+});
+
+userRouter.route("/:username/:date/task").post(async (req, res) => {
+    if (!req.body) {
+        res.status(400).json({ error: "ค่า req.body ไม่ถูกต้อง" });
+        return;
+    }
+    try {
+        const username = req.params.username;
+        const date = req.params.date;
+        const user = await readData2("dailyplanner", "users", { username: username });
+        const planner = await readData2("dailyplanner", "planners", { date: date, users_id: user._id });
+        const task = req.body;
+        task.planners_id = planner._id;
+        await upsertDataByName("dailyplanner", "tasks", task, task);
+        res.redirect("../"+date);
+    } catch (error) {
+        console.error("เกิดข้อผิดพลาด:", error);
+        res.status(500).json({ error: "เกิดข้อผิดพลาดในการอัปเดตข้อมูล" });
+    }
+});
+
+userRouter.route("/:username/:date/table").get(async (req, res) => {
+    const username = req.params.username;
+    const date = req.params.date;
+    const user = await readData2("dailyplanner", "users", { username: username });
+    const planner = await readData2("dailyplanner", "planners", { date: date, users_id: user._id });
+    const result = await joinCollectionByName("dailyplanner", "tasks", "planners", { planners_id: planner._id });
+    const join = await joinCollectionByName("dailyplanner", "planners", "users", { _id: planner._id });
+    Object.assign(result, user, planner);
+    console.log(result);
+    res.render("tasktable", result);
 });
 
 module.exports = userRouter;
