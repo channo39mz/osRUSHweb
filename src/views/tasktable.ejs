@@ -26,6 +26,39 @@
     </div>
 </div>
 
+<table id="tasktable">
+    <tr>
+        <th id="taskHead" rowspan="2">Task</th>
+        <th id="checkHead" rowspan="2">Check</th>
+        <th id="hourHead" rowspan="2">Time</th>
+        <th id="minuteHead" colspan="6">Minute</th>
+    </tr>
+    <tr>
+        <% for (let minute = 10; minute <= 60; minute += 10) {%>
+        <th><%=minute%></th>
+        <%}%>
+    </tr>
+    <% for (let time = 0; time < 24; time++) {%>
+    <tr>
+        <td>
+            <% hours[time].map(i => { %>
+            <span class="task" style="background-color: rgb(<%=i.color[0]%>, <%=i.color[1]%>, <%=i.color[2]%>);"><%=i.name%></span>
+            <% }) %>
+        </td>
+        <td><input type="checkbox"></td>
+        <td><%=time%>:00</td>
+        <td colspan="6">
+            <% hours[time].map(i => { %>
+            <div class="container2">
+                <div class="time" style="background-color: rgba(0, 0, 0, 0); width: <%=i.base*100%>%;"></div>
+                <div class="time" style="background-color: rgb(<%=i.color[0]%>, <%=i.color[1]%>, <%=i.color[2]%>); width: <%=i.limit*100%>%;"></div>
+            </div>
+            <% }) %>
+        </td>
+    </tr>
+    <%}%>
+</table>
+
 </body>
 
 </html>

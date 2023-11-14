@@ -5,6 +5,7 @@ const {
     readData2,
     joinCollectionByName
 } = require("../../mongo_connection");
+const HourMapper = require("../../public/scripts/common");
 
 userRouter.route("/").get((req, res) => {
     res.render("index");
@@ -87,10 +88,12 @@ userRouter.route("/:username/:date/table").get(async (req, res) => {
     const date = req.params.date;
     const user = await readData2("dailyplanner", "users", { username: username });
     const planner = await readData2("dailyplanner", "planners", { date: date, users_id: user._id });
-    const result = await joinCollectionByName("dailyplanner", "tasks", "planners", { planners_id: planner._id });
-    const join = await joinCollectionByName("dailyplanner", "planners", "users", { _id: planner._id });
-    Object.assign(result, user, planner);
-    console.log(result);
+    const tasks = await joinCollectionByName("dailyplanner", "tasks", "planners", { planners_id: planner._id });
+    const mapper = new HourMapper();
+    tasks.forEach(e => mapper.map(e.taskname, e.starttime, e.endtime));
+    const result = {};
+    Object.assign(result, user, planner, mapper);
+    console.log(result.hours);
     res.render("tasktable", result);
 });
 

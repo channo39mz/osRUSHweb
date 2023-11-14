@@ -46,13 +46,13 @@ td {
     height: 20px;
 }
 
-.minute {
-    width: 20px;
-    height: 20px;
+.time {
+    height: 20px
 }
 
 .task {
-    width: 95%;
+    color: white;
+    padding: 3px;
 }
 
 .center {
