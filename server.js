@@ -1,19 +1,7 @@
 const express = require("express");
-const {
-  connectToMongoDB,
-  closeMongoDBConnection,
-  listDatabases,
-  createDatabase,
-  readData,
-  updateDataByName,
-  upsertDataByName,
-  updateAllList,
-  deleteListByName,
-  readData2,
-} = require("./mongo_connection");
 
 const app = express();
-const port = 3000;
+const port = 80;
 const userRouter = require("./src/router/userRouter");
 
 app.use(express.static("public")); // ใช้ไฟล์ส่วน client-side ในโฟลเดอร์ 'public'
