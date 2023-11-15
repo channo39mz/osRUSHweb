@@ -4,7 +4,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover; */
     background-size: cover;
-    margin: 0;
+    margin: 15px;
     padding: 0;
   }
 
@@ -47,7 +47,7 @@ td {
 }
 
 .time {
-    height: 20px
+    height: 24px;
 }
 
 .task {
