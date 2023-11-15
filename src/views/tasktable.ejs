@@ -42,10 +42,10 @@
     <tr>
         <td>
             <% hours[time].map(i => { %>
-            <span class="task" style="background-color: rgb(<%=i.color[0]%>, <%=i.color[1]%>, <%=i.color[2]%>);"><%=i.name%></span>
+            <div class="task" style="background-color: rgb(<%=i.color[0]%>, <%=i.color[1]%>, <%=i.color[2]%>);"><%=i.name%></div>
             <% }) %>
         </td>
-        <td><input type="checkbox"></td>
+        <td><input class="check" type="checkbox"></td>
         <td><%=time%>:00</td>
         <td colspan="6">
             <% hours[time].map(i => { %>
