@@ -17,7 +17,7 @@ class HourMapper {
         } else {
             this.hours[hourStart].push({ name: obj, color: color, base: minuteStart, limit: 1-minuteStart })
             for (let t = hourStart+1; t < hourEnd; t++) {
-                this.hours[t].push({ name: obj, color: color, base: 0, limit: 1-minuteStart});
+                this.hours[t].push({ name: obj, color: color, base: 0, limit: 1});
             }
             if (minuteEnd > 0) {
                 this.hours[hourEnd].push({ name: obj, color: color, base: 0, limit: minuteEnd })

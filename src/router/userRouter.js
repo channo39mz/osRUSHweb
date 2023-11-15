@@ -5,7 +5,7 @@ const {
     readData2,
     joinCollectionByName
 } = require("../../mongo_connection");
-const HourMapper = require("../../public/scripts/common");
+const HourMapper = require("../../public/scripts/hour-mapper");
 
 userRouter.route("/").get((req, res) => {
     res.render("index");
@@ -93,7 +93,6 @@ userRouter.route("/:username/:date/table").get(async (req, res) => {
     tasks.forEach(e => mapper.map(e.taskname, e.starttime, e.endtime));
     const result = {};
     Object.assign(result, user, planner, mapper);
-    console.log(result.hours);
     res.render("tasktable", result);
 });
 
