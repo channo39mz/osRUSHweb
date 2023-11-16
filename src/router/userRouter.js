@@ -4,7 +4,7 @@ const {
     upsertDataByName,
     readData2,
     joinCollectionByName
-} = require("../../mongo_connection");
+} = require("../../public/scripts/mongo_connection");
 const HourMapper = require("../../public/scripts/hour-mapper");
 
 userRouter.route("/").get((req, res) => {
